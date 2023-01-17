@@ -1,3 +1,6 @@
+import Book from "./modules/Book.js";
+import { DateTime } from "./modules/luxon.js";
+
 window.addEventListener('DOMContentLoaded', () => {
     const booksLink = document.querySelector('.list');
     const formsLink = document.querySelector('.add-new');
@@ -31,11 +34,8 @@ window.addEventListener('DOMContentLoaded', () => {
     formsLink.addEventListener('click', showFormOnly);
   });
 
-
-import Book from "./modules/Book.js";
-
-const date = new Date().toDateString();
-document.getElementById('date').innerHTML = date;
+let dt = DateTime.now();
+document.getElementById('date').innerHTML = dt.toLocaleString(DateTime.DATETIME_FULL)
 
   const addButton = document.querySelector('#add-book');
   const removeButton = document.querySelectorAll('.remove');
